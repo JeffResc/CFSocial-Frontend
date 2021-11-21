@@ -1,3 +1,4 @@
+//Set current endpoint
 const endpoint = 'https://cfsocial.jeffresc.dev/api/';
 //const endpoint = 'http://127.0.0.1:8787/';
 
