@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>CFSocial</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.tiny.cloud/1/39s8w9qb5wq587ewdwdkwuo0rsa04j5igwwq95srbty2c141/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#!">CFSocial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li id="new-post-button" class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#postModal">New Post</a></li>
+                    <li id="login-button" class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    <li id="register-button" class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
+                    <li id="logout-button" class="nav-item"><a class="nav-link" href="#" onclick="logout(); location.reload();">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page content-->
+    <div class="col-lg-4">
+        <div class="container mt-5">
+            <div class="row">
+                <div id="posts">
+                    <p>Loading posts...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modals">
+        <!-- Post Modal -->
+        <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="postModalLabel">Create a New Post</h5>
+                    </div>
+                    <div class="modal-body">
+                        <label for="post-title">Title</label>
+                        <input type="text" class="form-control" id="post-title" placeholder="Hello, world!" required>
+                        <label for="post-content">Content</label>
+                        <textarea class="form-control" id="post-content" rows="3" placeholder='"A computer would deserve to be called intelligent if it could deceive a human into believing that it was human." — Alan Turing'></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="publish_post();">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    </div>
+                    <div class="modal-body">
+                        <label for="login-username">Username</label>
+                        <input type="text" class="form-control" id="login-username" placeholder="alan_turing12" required>
+                        <label for="login-password">Password</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="●●●●●●●●" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="login_form()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                </div>
+                <div class="modal-body">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="register-username" placeholder="ada_lovelace15" required>
+                    <label for="register-password">Password</label>
+                    <input type="password" class="form-control" id="register-password" placeholder="●●●●●●●●" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="register_form()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">&copy;2021 CFSocial</p>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.bundle.min.js" integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- Session storage script -->
+    <script src="js/SessionStorageHelper.js"></script>
+    <!-- Custom JS -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
