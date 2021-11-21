@@ -277,7 +277,9 @@ function load_posts() {
                 html += '<div class="ms-3">';
                 html += '<div class="fw-bold">' + data.posts[i].comments[j].username + '</div>';
                 html += '<div class="text-muted fst-italic mb-2">Posted on ' + comment_published_date.toLocaleString('en-US') + '</div>';
-                html += '<div class="text-muted fst-italic mb-2"><a href="#" onclick="deleteComment(' + data.posts[i].id + ', ' + data.posts[i].comments[j].id + ')">Delete</a></div>';
+                if (logged_in() && data.posts[i].comments[j].username == SessionStorageHelper.get('username')) {
+                    html += '<div class="text-muted fst-italic mb-2"><a href="#" onclick="deleteComment(' + data.posts[i].id + ', ' + data.posts[i].comments[j].id + ')">Delete</a></div>';
+                }
                 html += '<p>' + data.posts[i].comments[j].content + '</p>';
                 html += '</div>';
                 html += '</div>';
