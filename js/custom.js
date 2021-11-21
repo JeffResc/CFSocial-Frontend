@@ -95,6 +95,7 @@ async function login_form() {
             complete: function(data) {
                 if (data.status === 200) {
                     login_display();
+                    load_posts();
                     $('#loginModal').modal('hide');
                 } else {
                     alert('Unable to login: ' + data.responseText);
