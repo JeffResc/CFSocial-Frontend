@@ -1,5 +1,5 @@
-//const endpoint = 'https://socialmedia-api-router.jeffresc.workers.dev/';
-const endpoint = 'http://127.0.0.1:8787/';
+const endpoint = 'https://socialmedia-api-router.jeffresc.workers.dev/';
+//const endpoint = 'http://127.0.0.1:8787/';
 
 var last_fetch = '';
 
